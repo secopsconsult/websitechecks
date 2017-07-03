@@ -17,7 +17,8 @@ def checkerHeader(header, check, debug):
 			print "[+] HPKP Header: Header not Empty"
 			print "[+] HPKP Header: Rows " + str(len(header.getheaders('Public-Key-Pins')))
 			print "[+] HPKP Header: " + str(header.getheaders('Public-Key-Pins')[0])
-			print "[+] HPKP Header: Comparing header with " + check
+			if check is not None:
+				print "[+] HPKP Header: Comparing header with " + check
 		else:
 			print "[+] HPKP Header: Header is empty"
 			
