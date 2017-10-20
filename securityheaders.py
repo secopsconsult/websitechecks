@@ -19,11 +19,19 @@ def validateHeaders(header, debug):
 	if (debug):
 		if (len(header.getheaders('Public-Key-Pins')) > 0):
 			print "[+] HPKP Header: Header not Empty"
-			print "[+] HPKP Header: " + str(header.getheaders('Public-Key-Pins')[0])
 	if (len(header.getheaders('Public-Key-Pins')) > 0):
 		print "[+] HPKP Header: " + str(header.getheaders('Public-Key-Pins')[0])
 	else:
 		print "[~] No HPKP Header present"
+
+	if (debug):
+		if (len(header.getheaders('Content-Security-Policy')) > 0):
+			print "[+] CSP Header: Header not Empty"
+	if (len(header.getheaders('Content-Security-Policy')) > 0):
+		print "[+] CSP Header: " + str(header.getheaders('Content-Security-Policy')[0])
+	else:
+		print "[~] No CSP Header present"
+
 
 	return
 
