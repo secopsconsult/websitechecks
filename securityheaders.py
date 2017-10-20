@@ -15,15 +15,23 @@ import tkinter
 def validateHeaders(header, debug):
 	if (debug):
 		print "[+] Validating headers"
+		print "[~] Headers: " + str(header)
 
 	if (debug):
 		if (len(header.getheaders('Public-Key-Pins')) > 0):
 			print "[+] HPKP Header: Header not Empty"
-			print "[+] HPKP Header: " + str(header.getheaders('Public-Key-Pins')[0])
 	if (len(header.getheaders('Public-Key-Pins')) > 0):
 		print "[+] HPKP Header: " + str(header.getheaders('Public-Key-Pins')[0])
 	else:
 		print "[~] No HPKP Header present"
+
+	if (debug):
+		if (len(header.getheaders('Strict-Transport-Security')) > 0):
+			print "[+] HSTS Header: Header not Empty"
+	if (len(header.getheaders('Strict-Transport-Security')) > 0):
+		print "[+] HSTS Header: " + str(header.getheaders('Strict-Transport-Security')[0])
+	else:
+		print "[-] No HSTS Header present"
 
 	return
 
