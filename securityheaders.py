@@ -33,14 +33,13 @@ def validateHeaders(header, debug):
 	else:
 		print "[~] No CSP Header present"
 
-  if (debug):
+        if (debug):
 		if (len(header.getheaders('Strict-Transport-Security')) > 0):
 			print "[+] HSTS Header: Header not Empty"
 	if (len(header.getheaders('Strict-Transport-Security')) > 0):
 		print "[+] HSTS Header: " + str(header.getheaders('Strict-Transport-Security')[0])
 	else:
 		print "[-] No HSTS Header present"
-
 
 	return
 
