@@ -16,6 +16,15 @@ def validateHeaders(header, debug):
 	if (debug):
 		print "[+] Validating headers"
 
+	if (debug):
+		if (len(header.getheaders('Public-Key-Pins')) > 0):
+			print "[+] HPKP Header: Header not Empty"
+			print "[+] HPKP Header: " + str(header.getheaders('Public-Key-Pins')[0])
+	if (len(header.getheaders('Public-Key-Pins')) > 0):
+		print "[+] HPKP Header: " + str(header.getheaders('Public-Key-Pins')[0])
+	else:
+		print "[~] No HPKP Header present"
+
 	return
 
 def viewPage(url, agent, debug):
