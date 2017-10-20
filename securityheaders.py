@@ -26,12 +26,21 @@ def validateHeaders(header, debug):
 		print "[~] No HPKP Header present"
 
 	if (debug):
+		if (len(header.getheaders('Content-Security-Policy')) > 0):
+			print "[+] CSP Header: Header not Empty"
+	if (len(header.getheaders('Content-Security-Policy')) > 0):
+		print "[+] CSP Header: " + str(header.getheaders('Content-Security-Policy')[0])
+	else:
+		print "[~] No CSP Header present"
+
+  if (debug):
 		if (len(header.getheaders('Strict-Transport-Security')) > 0):
 			print "[+] HSTS Header: Header not Empty"
 	if (len(header.getheaders('Strict-Transport-Security')) > 0):
 		print "[+] HSTS Header: " + str(header.getheaders('Strict-Transport-Security')[0])
 	else:
 		print "[-] No HSTS Header present"
+
 
 	return
 
